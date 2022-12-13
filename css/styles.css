@@ -497,3 +497,9 @@ figcaption {
   color: var(--text-light-gray);
   margin: 0 24px 20px;
 }
+
+.is-hidden {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
