@@ -13,6 +13,7 @@
   --icons-dark-gray: rgba(255, 255, 255, 0.1);
   --background-overlay: rgba(47, 48, 58, 0.4);
   --box-overlay: rgba(33, 150, 243, 0.9);
+  --background-overlay-about: rgba(47, 48, 58, 0.8);
 }
 
 body {
@@ -101,11 +102,20 @@ figcaption {
   letter-spacing: 0.02em;
   color: var(--text-black);
   text-decoration: none;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
 .nav-link:focus {
   color: var(--logo-blue);
+}
+
+.nav-link::after {
+  content: '';
+  width: 58px;
+  height: 4px;
+  display: flex;
 }
 
 .header-contact {
@@ -124,6 +134,8 @@ figcaption {
   letter-spacing: 0.02em;
   color: var(--text-light-gray);
   text-decoration: none;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contact-item:hover,
@@ -177,11 +189,19 @@ figcaption {
   letter-spacing: 0.06em;
   color: var(--logo-white);
   background: var(--logo-blue);
-  cursor: pointer;
   border: none;
   outline: none;
   padding: 10px 41px 10px 42px;
   margin: 30px auto auto;
+  border-radius: 4px;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-primary-button:hover,
+.header-primary-button:focus {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 /* Nasze atuty */
@@ -206,7 +226,7 @@ figcaption {
 
 .header-tertiary {
   font-size: 14px;
-  line-height: 1.14;
+  line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--text-black);
@@ -236,6 +256,29 @@ figcaption {
   display: flex;
   justify-content: center;
   column-gap: 30px;
+}
+
+.about-box > li {
+  position: relative;
+}
+
+.header-tertiary-about {
+  font-size: 14px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--logo-white);
+  text-align: center;
+  align-items: center;
+  padding-top: 27px;
+  margin-top: 224px;
+  position: absolute;
+}
+
+.background-about {
+  background-color: var(--background-overlay-about);
+  width: 370px;
+  height: 70px;
 }
 
 .background-team {
@@ -293,6 +336,8 @@ figcaption {
   padding: 12px;
   color: var(--icons-gray);
   border-radius: 50%;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social:hover,
@@ -320,6 +365,8 @@ figcaption {
   border: 1px solid var(--icons-gray);
   border-radius: 4px;
   fill: var(--icons-gray);
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon:hover,
@@ -376,6 +423,8 @@ figcaption {
   letter-spacing: 0.03em;
   color: var(--footer-60-white);
   text-decoration: none;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer:hover,
@@ -411,6 +460,8 @@ figcaption {
   color: var(--logo-white);
   background-color: var(--icons-dark-gray);
   border-radius: 50%;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-footer:hover,
@@ -442,6 +493,9 @@ figcaption {
   outline: none;
   padding: 6px 22px;
   background-color: var(--buttons-background-gray);
+  border-radius: 4px;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .buttons:hover,
@@ -466,12 +520,6 @@ figcaption {
   flex-basis: calc((100% - 60px) / 3);
 }
 
-.portfolio-box-item:hover {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-  cursor: pointer;
-}
-
 .portfolio-box-item figcaption {
   display: flex;
   flex-direction: column;
@@ -482,15 +530,6 @@ figcaption {
   overflow: hidden;
 }
 
-.box > .box-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(100%);
-}
-
 .box-overlay {
   padding: 49px 45px 49px 24px;
   font-weight: 400px;
@@ -499,12 +538,34 @@ figcaption {
   letter-spacing: 0.03em;
   background-color: var(--box-overlay);
   color: var(--logo-white);
-  transition: transform 250ms ease;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(101%);
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-figure:hover .box-overlay {
+.shadow:hover .box-overlay {
   transform: translateY(0);
+}
+
+.shadow:hover .box {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.shadow:hover .border {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+
+.portfolio-box-item:focus .box-overlay {
+  transform: translateY(0);
 }
 
 .border {
