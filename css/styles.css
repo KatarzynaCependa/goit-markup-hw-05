@@ -115,7 +115,8 @@ figcaption {
   content: '';
   width: 58px;
   height: 4px;
-  display: flex;
+  display: block;
+  color: var(--logo-blue);
 }
 
 .header-contact {
@@ -379,7 +380,6 @@ figcaption {
 
 .background-ftr {
   background: var(--background-gray);
-  /* padding: 60px 0; */
 }
 
 .footer-container {
@@ -468,6 +468,52 @@ figcaption {
 .social-footer:focus {
   background-color: var(--logo-blue);
   color: var(--logo-white);
+}
+
+/* OKNO MODALNE */
+
+.backdrop {
+  width: 1600px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.is-hidden {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal {
+  width: 528px;
+  height: 581px;
+  background: var(--logo-white);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: relative;
+  top: 221px;
+  left: 536px;
+  display: flex;
+}
+
+.close-btn {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-color: var(--logo-white);
+  padding: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.close-btn-x {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 /* PORTFOLIO */
@@ -588,10 +634,4 @@ figcaption {
   letter-spacing: 0.03em;
   color: var(--text-light-gray);
   margin: 0 24px 20px;
-}
-
-.is-hidden {
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
 }
