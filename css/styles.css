@@ -102,7 +102,8 @@ figcaption {
   letter-spacing: 0.02em;
   color: var(--text-black);
   text-decoration: none;
-  transition: 250ms;
+  transition-property: color;
+  transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -111,12 +112,20 @@ figcaption {
   color: var(--logo-blue);
 }
 
-.nav-link::after {
+.is-active {
+  color: var(--logo-blue);
+}
+
+.is-active::after {
   content: '';
   width: 58px;
   height: 4px;
-  display: block;
-  color: var(--logo-blue);
+  display: flex;
+  background-color: var(--logo-blue);
+  border-radius: 2px;
+  position: absolute;
+  top: 77px;
+  justify-content: center;
 }
 
 .header-contact {
@@ -135,7 +144,8 @@ figcaption {
   letter-spacing: 0.02em;
   color: var(--text-light-gray);
   text-decoration: none;
-  transition: 250ms;
+  transition-property: color;
+  transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -195,7 +205,8 @@ figcaption {
   padding: 10px 41px 10px 42px;
   margin: 30px auto auto;
   border-radius: 4px;
-  transition: 250ms;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -337,7 +348,8 @@ figcaption {
   padding: 12px;
   color: var(--icons-gray);
   border-radius: 50%;
-  transition: 250ms;
+  transition-property: background-color, color;
+  transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -366,7 +378,8 @@ figcaption {
   border: 1px solid var(--icons-gray);
   border-radius: 4px;
   fill: var(--icons-gray);
-  transition: 250ms;
+  transition-property: border-color, fill;
+  transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -423,8 +436,7 @@ figcaption {
   letter-spacing: 0.03em;
   color: var(--footer-60-white);
   text-decoration: none;
-  transition: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer:hover,
@@ -460,7 +472,8 @@ figcaption {
   color: var(--logo-white);
   background-color: var(--icons-dark-gray);
   border-radius: 50%;
-  transition: 250ms;
+  transition-property: background-color, color;
+  transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -473,18 +486,23 @@ figcaption {
 /* OKNO MODALNE */
 
 .backdrop {
-  width: 1600px;
-  height: 100%;
+  display: flex;
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
   background: rgba(0, 0, 0, 0.2);
-  position: absolute;
   left: 0px;
   top: 0px;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 500ms 50ms ease, visibility 500ms 50ms ease, transform 500ms 50ms ease;
 }
 
 .is-hidden {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
+  transition: opacity 250ms 50ms ease, visibility 250ms 50ms ease, transform 250ms 50ms ease;
 }
 
 .modal {
@@ -494,10 +512,9 @@ figcaption {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  position: relative;
-  top: 221px;
-  left: 536px;
+  position: absolute;
   display: flex;
+  justify-content: flex-end;
 }
 
 .close-btn {
@@ -508,12 +525,12 @@ figcaption {
   padding: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  margin: 8px 8px 0 0;
 }
 
 .close-btn-x {
   width: 18px;
   height: 18px;
-  display: block;
 }
 
 /* PORTFOLIO */
@@ -540,7 +557,8 @@ figcaption {
   padding: 6px 22px;
   background-color: var(--buttons-background-gray);
   border-radius: 4px;
-  transition: 250ms;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -570,6 +588,20 @@ figcaption {
   display: flex;
   flex-direction: column;
 }
+.shadow:hover .box-overlay {
+  transform: translateY(0);
+}
+
+.shadow:hover .box {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.shadow:hover .border {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
 
 .box {
   position: relative;
@@ -584,30 +616,15 @@ figcaption {
   letter-spacing: 0.03em;
   background-color: var(--box-overlay);
   color: var(--logo-white);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  transform: translateY(101%);
-  transition: 250ms;
+  transition-property: transform, box-shadow;
+  transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.shadow:hover .box-overlay {
-  transform: translateY(0);
-}
-
-.shadow:hover .box {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
-
-.shadow:hover .border {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-  cursor: pointer;
+  transform: translateY(101%);
 }
 
 .portfolio-box-item:focus .box-overlay {
