@@ -522,7 +522,6 @@ figcaption {
   height: 30px;
   cursor: pointer;
   background-color: var(--logo-white);
-  padding: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   margin: 8px 8px 0 0;
@@ -531,6 +530,10 @@ figcaption {
 .close-btn-x {
   width: 18px;
   height: 18px;
+}
+
+svg {
+  vertical-align: middle;
 }
 
 /* PORTFOLIO */
