@@ -105,6 +105,8 @@ figcaption {
   transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: block;
 }
 
 .nav-link:hover,
@@ -118,14 +120,25 @@ figcaption {
 
 .is-active::after {
   content: '';
-  width: 58px;
+  width: 100%;
   height: 4px;
-  display: flex;
   background-color: var(--logo-blue);
   border-radius: 2px;
   position: absolute;
-  top: 77px;
-  justify-content: center;
+  top: 46px;
+  left: 0;
+}
+
+.not-active:hover::after,
+.not-active:focus::after {
+  content: '';
+  width: 100%;
+  height: 4px;
+  background-color: var(--logo-blue);
+  border-radius: 2px;
+  position: absolute;
+  top: 46px;
+  left: 0;
 }
 
 .header-contact {
